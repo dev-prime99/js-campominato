@@ -1,40 +1,55 @@
 
-var numeripc, npc, ok, nutente, x, y, punteggio;
+var numeripc, npc, ok, okk, nutente, numeriutenti, x, punteggio, y;
 
 numeripc = [];
+numeriutenti = [];
 
 while(numeripc.length < 16){
   npc = Math.floor(Math.random() * 100) + 1;
-  if(numeripc.indexOf(npc) === -1) numeripc.push(npc);
+  if(numeripc.indexOf(npc) === -1){
+    numeripc.push(npc);
+  }
 }
 
 console.log(numeripc);
 
 ok = 0;
+okk = 0;
 
 punteggio = 0;
 
-function confronto() {
-  for (var i = 0; i < 16; i++){
-    if (nutente == numeripc[i]) {
+function confronto(user, numeripc) {
+  ok = 0;
+  var i = 0;
+  while (i < 16 && ok == 0) {
+    if (user == numeripc[i]) {
       console.log("male")
-      i = 17;
       ok = 1;
     } else{
-      console.log("bene");
-      ok = 0
+      i++;
     }
   }
   return ok;
 }
 
-function richiesta() {
-  nutente = prompt("Inserisci un numero");
-}
+y = 0;
 
 while (ok < 1) {
-  y = richiesta()
-  x = confronto();
+  while (y < 1) {
+    nutente = prompt("inserisci un numero");
+    var i = 0;
+    while (i <= 15 && okk == 1) {
+      if (nutente == numeriutenti[i]) {
+        ook = 1;
+      } else if (i > 14){
+        y = 1;
+        i++;
+      } else{
+        i++;
+      }
+    }
+  }
+  x = confronto(nutente, numeripc);
   punteggio++;
 }
 
