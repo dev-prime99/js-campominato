@@ -1,5 +1,5 @@
 
-var numeripc, npc, ok, okk, nutente, numeriutenti, x, punteggio, y;
+var numeripc, npc, ok, okk, nutente, numeriutenti, x, punteggio, y, bho, contatore;
 
 numeripc = [];
 numeriutenti = [];
@@ -14,9 +14,29 @@ while(numeripc.length < 16){
 console.log(numeripc);
 
 ok = 0;
-okk = 0;
 
-punteggio = 0;
+function checo(nutente, numeriutenti) {
+  var ii = 0;
+  var okk = 0;
+  while (okk < 1){
+    if (isNaN(nutente)) {
+      alert("il valore deve essere un numero");
+      okk = 1;
+    } else if (nutente > 100) {
+      alert("il numero deve essere tra 1 e 100 compresi");
+      okk = 1;
+    } else if (nutente == numeriutenti[ii]) {
+      alert("numero doppio, inserisci un altro");
+      okk = 1;
+    } else if (ii > numeriutenti.length) {
+      numeriutenti.push(nutente);
+      okk = 1;
+    } else{
+      ii++;
+    }
+  }
+  //return nutente;
+}
 
 function confronto(user, numeripc) {
   ok = 0;
@@ -32,25 +52,18 @@ function confronto(user, numeripc) {
   return ok;
 }
 
-y = 0;
 
 while (ok < 1) {
-  while (y < 1) {
-    nutente = prompt("inserisci un numero");
-    var i = 0;
-    while (i <= 15 && okk == 1) {
-      if (nutente == numeriutenti[i]) {
-        ook = 1;
-      } else if (i > 14){
-        y = 1;
-        i++;
-      } else{
-        i++;
-      }
-    }
-  }
+  nutente = prompt("inserisci un numero");
+  var z = checo(nutente, numeriutenti);
   x = confronto(nutente, numeripc);
-  punteggio++;
+  y = numeriutenti.length;
+  document.getElementById('nutente').innerHTML = "numeri scelti da te: " + numeriutenti;
 }
 
-console.log(punteggio - 1);
+document.getElementById('punti').innerHTML = "Hai totalizzato: "  + y + " punti";
+
+document.getElementById('ar').innerHTML = "Numeri scelti dal computer: "  + numeripc;
+
+console.log(numeriutenti);
+console.log(y);
