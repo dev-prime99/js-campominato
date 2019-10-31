@@ -103,7 +103,7 @@ while (ok < 1) {
 }
 
 //LISTA NUMERI PC
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 15; i++) {
   document.getElementById('list').innerHTML += "<li>" + numeripc[i] + "</li>";
 }
 
