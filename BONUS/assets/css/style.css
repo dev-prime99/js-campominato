@@ -9,18 +9,51 @@
 body{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #05e4f2;
+  height: 100vh;
 }
 
-div{
+body > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+}
+
+div div{
   display: flex;
   align-items: center;
-  margin: 70px 0;
-}
-
-#nutente, #punti{
-  width: 50%;
-}
-
-#ar{
+  justify-content: space-between;
   width: 100%;
+  margin-bottom: 100px;
+}
+
+#nutente{
+  color: #0554F2;
+  text-transform: uppercase;
+}
+
+#punti{
+  color: #0583F2;
+  font-style: italic;
+}
+
+#list{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  width: 80%;
+}
+
+#list li{
+  font-size: 25px;
+  color: #18298C;
+  font-weight: bold;
+}
+
+#list li:last-child{
+  color: #ff0000;
 }
